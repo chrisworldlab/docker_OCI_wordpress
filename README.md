@@ -1,1 +1,1 @@
-wordpress with docker and Oracle cloud
+Wordpress with docker and Oracle cloud vm instance.
