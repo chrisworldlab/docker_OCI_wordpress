@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  app:
+    image: iamapinan/wordpress:latest
+    volumes:
+      - ./app:/var/www/html
+    ports:
+      - 80:80
+    networks:
+      - wordpress-network
+
+  db:
+    image: mariadb
+    ports:
+      - 3306
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - wordpress-network        
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: securepassword123
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: securepassword123
+
+
+
+
+networks:
+  wordpress-network:
